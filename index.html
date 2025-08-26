@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Doctor Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
@@ -11,7 +11,9 @@
       padding: 0;
       box-sizing: border-box;
       font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
     }
+
     body {
       background: #f9f9f9;
       color: #333;
@@ -26,162 +28,279 @@
       width: 100%;
       background: #0077b6;
       color: #fff;
-      padding: 15px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 15px 20px;
       z-index: 1000;
     }
-    nav h1 {
+
+    nav .logo {
+      font-weight: 700;
       font-size: 1.2rem;
     }
-    .nav-links {
+
+    nav #menu-btn {
       display: none;
-      flex-direction: column;
-      background: #0077b6;
-      position: absolute;
-      top: 60px;
-      right: 0;
-      width: 200px;
-      border-radius: 10px;
-    }
-    .nav-links a {
-      padding: 12px;
-      text-decoration: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
       color: #fff;
+      cursor: pointer;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
       font-weight: 600;
       transition: 0.3s;
     }
-    .nav-links a:hover {
-      background: #005f8a;
+
+    nav ul li a:hover {
+      color: #ffd60a;
     }
-    .hamburger {
-      cursor: pointer;
-      font-size: 1.5rem;
-    }
-    .nav-links.active {
-      display: flex;
+
+    /* Mobile Menu */
+    @media (max-width: 768px) {
+      nav ul {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background: #0077b6;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+      }
+
+      nav ul.active {
+        max-height: 300px;
+      }
+
+      nav #menu-btn {
+        display: block;
+      }
     }
 
     /* Header */
     header {
-      margin-top: 70px;
-      text-align: center;
-      padding: 40px 20px;
       background: #0077b6;
       color: #fff;
-    }
-    header img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      margin-bottom: 15px;
-      border: 4px solid #fff;
-    }
-    header h2 {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-    }
-
-    /* Quick Contact */
-    .quick-contact {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin: 20px;
-    }
-    .contact-btn {
-      background: #0077b6;
-      color: #fff;
-      padding: 14px;
-      border-radius: 10px;
+      padding: 120px 20px 60px;
       text-align: center;
+    }
+    header h1 {
+      font-size: 2.2rem;
+    }
+    header p {
+      margin: 10px 0;
       font-size: 1.1rem;
-      font-weight: 600;
-      text-decoration: none;
     }
-    .contact-btn:hover {
-      background: #005f8a;
+    header button {
+      background: #fff;
+      color: #0077b6;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 15px;
+      transition: 0.3s;
+    }
+    header button:hover {
+      background: #ffd60a;
+      color: #fff;
     }
 
-    /* Sections */
     section {
-      padding: 40px 20px;
-      margin: 20px;
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: 30px auto;
       border: 2px solid #0077b6;
       border-radius: 15px;
       background: #fff;
     }
-    section h2 {
-      text-align: center;
+
+    h2 {
       color: #0077b6;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+      text-align: center;
+    }
+
+    /* About Section */
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+    .about-text {
+      flex: 1;
+      min-width: 280px;
+    }
+    .about-text h3 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    .about-text h4 {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      color: #0077b6;
+    }
+    .about-img {
+      flex: 1;
+      min-width: 280px;
+      display: flex;
+      justify-content: center;
+    }
+    .about-img img {
+      max-width: 250px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
     /* Services */
     .services-list {
       display: flex;
-      flex-direction: column;
-      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: space-around;
     }
     .service {
-      background: #f1faff;
-      padding: 15px;
+      background: #f9f9f9;
+      padding: 20px;
+      margin: 10px;
+      flex: 1 1 200px;
       border-radius: 10px;
       text-align: center;
-      font-weight: 500;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     /* Timeline */
     .timeline {
+      position: relative;
+      margin: 20px 0;
+      padding-left: 40px;
       border-left: 3px solid #0077b6;
-      padding-left: 20px;
     }
     .timeline-item {
-      margin-bottom: 20px;
       position: relative;
+      margin-bottom: 30px;
     }
     .timeline-dot {
       position: absolute;
       left: -11px;
-      top: 10px;
+      top: 15px;
       width: 18px;
       height: 18px;
       background: #0077b6;
       border-radius: 50%;
       border: 3px solid #fff;
+      box-shadow: 0 0 0 2px #0077b6;
+    }
+    .timeline-content {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .timeline-content h4 {
+      margin-bottom: 5px;
+      color: #333;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    .timeline-content h3 {
+      margin-bottom: 10px;
+      color: #0077b6;
+      font-size: 1rem;
     }
 
     /* Testimonials */
+    #testimonial {
+      text-align: center;
+    }
     .testimonial-container {
       position: relative;
       overflow: hidden;
+      width: 100%;
+      max-width: 600px;
+      margin: auto;
     }
     .testimonial-slide {
       display: none;
-      transition: transform 0.5s ease-in-out;
+      transform: translateX(100%);
+      transition: transform 0.6s ease-in-out;
     }
     .testimonial-slide.active {
       display: block;
+      transform: translateX(0);
     }
     .testimonial-card {
       background: #0077b6;
       color: #fff;
       padding: 20px;
       border-radius: 15px;
-      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin: 0 10px;
     }
     .testimonial-card h4 {
-      margin-bottom: 10px;
       color: #ffd60a;
+    }
+    .testimonial-img {
+      width: 80px;
+      height: 80px;
+      background: #ddd url('https://via.placeholder.com/80') center/cover;
+      border-radius: 50%;
+      margin: 0 auto 15px;
+    }
+
+    /* Contact */
+    #contact .cta-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    #contact .cta-buttons a {
+      display: block;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      background: #0077b6;
+      transition: 0.3s;
+      width: 220px;
+      text-align: center;
+    }
+    #contact .cta-buttons a:hover {
+      background: #ffd60a;
+      color: #333;
     }
 
     /* Form */
+    form {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
     form input, form textarea, form button {
       width: 100%;
-      padding: 12px;
+      padding: 10px;
       margin: 10px 0;
-      border-radius: 8px;
+      border-radius: 5px;
       border: 1px solid #ccc;
       font-size: 1rem;
     }
@@ -189,8 +308,12 @@
       background: #0077b6;
       color: #fff;
       border: none;
-      font-weight: bold;
       cursor: pointer;
+      font-weight: bold;
+    }
+    form button:hover {
+      background: #ffd60a;
+      color: #333;
     }
 
     footer {
@@ -198,24 +321,16 @@
       color: #fff;
       text-align: center;
       padding: 15px;
-      margin-top: 30px;
+      margin-top: 20px;
     }
 
-    /* Desktop */
-    @media (min-width: 768px) {
-      .nav-links {
-        display: flex;
-        flex-direction: row;
-        position: static;
-        width: auto;
-        border-radius: 0;
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
       }
-      .hamburger {
-        display: none;
-      }
-      .quick-contact {
-        flex-direction: row;
-        justify-content: center;
+      .service {
+        flex: 1 1 100%;
       }
     }
   </style>
@@ -224,30 +339,40 @@
 
   <!-- Navbar -->
   <nav>
-    <h1>Dr. John Doe</h1>
-    <div class="hamburger">☰</div>
-    <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#experience">Experience</a>
-      <a href="#testimonial">Testimonials</a>
-      <a href="#appointment">Appointment</a>
-    </div>
+    <div class="logo">My Clinic</div>
+    <button id="menu-btn">☰</button>
+    <ul id="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#testimonial">Testimonials</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#appointment">Appointment</a></li>
+    </ul>
   </nav>
 
   <!-- Header -->
   <header id="home">
-    <img src="Images/albumcover.jpg" alt="Doctor">
-    <h2>Dr. John Doe</h2>
-    <p>Cardiologist | MBBS, MD</p>
+    <h1>Welcome to My Clinic</h1>
+    <p>Expert Care with Compassion</p>
+    <button onclick="document.getElementById('appointment').scrollIntoView({behavior:'smooth'})">Book Appointment</button>
   </header>
 
-  <!-- Quick Contact -->
-  <div class="quick-contact">
-    <a href="tel:+919876543210" class="contact-btn">📞 Call</a>
-    <a href="https://wa.me/919876543210" class="contact-btn">💬 WhatsApp</a>
-    <a href="mailto:doctor@example.com" class="contact-btn">✉️ Email</a>
-  </div>
+  <!-- About -->
+  <section id="about">
+    <div class="about-container">
+      <div class="about-text">
+        <h2>About Me</h2>
+        <h3><b>Dr. John Doe</b></h3>
+        <h4>Cardiologist | MBBS, MD</h4>
+        <p>I am a specialist doctor with years of experience in providing quality healthcare.</p>
+        <p>I offer both in-person consultations and online sessions for convenience.</p>
+      </div>
+      <div class="about-img">
+        <img src="images/albumcover.jpg" alt="Doctor">
+      </div>
+    </div>
+  </section>
 
   <!-- Services -->
   <section id="services">
@@ -266,48 +391,81 @@
     <div class="timeline">
       <div class="timeline-item">
         <div class="timeline-dot"></div>
-        <p><b>Resident Doctor, XYZ Hospital</b> (2012–2015)</p>
+        <div class="timeline-content">
+          <h4>Resident Doctor, XYZ Hospital</h4>
+          <h3>2012 – 2015</h3>
+          <p>Hands-on training in cardiology and emergency care.</p>
+        </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-dot"></div>
-        <p><b>Consultant, City Heart Institute</b> (2016–2019)</p>
+        <div class="timeline-content">
+          <h4>Consultant Cardiologist, City Heart Institute</h4>
+          <h3>2016 – 2019</h3>
+          <p>Specialized in treating complex heart conditions.</p>
+        </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-dot"></div>
-        <p><b>Research & Publications</b> (2020–2023)</p>
+        <div class="timeline-content">
+          <h4>Research & Publications</h4>
+          <h3>2020 – 2023</h3>
+          <p>Published multiple research papers on preventive cardiology.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h4>Senior Cardiologist, City Hospital</h4>
+          <h3>2024 – Present</h3>
+          <p>Leading patient care programs and offering online consultations.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Testimonials -->
+  <!-- Testimonial -->
   <section id="testimonial">
     <h2>Testimonials</h2>
     <div class="testimonial-container">
       <div class="testimonial-slide active">
         <div class="testimonial-card">
+          <div class="testimonial-img"></div>
           <h4>Rahul Sharma</h4>
-          <p>"Dr. John is very compassionate and caring."</p>
+          <p>"Dr. Mehta is one of the most compassionate doctors I’ve met."</p>
         </div>
       </div>
       <div class="testimonial-slide">
         <div class="testimonial-card">
+          <div class="testimonial-img"></div>
           <h4>Priya Verma</h4>
-          <p>"Very professional and thorough in consultation."</p>
+          <p>"Extremely professional and kind. Consultations are always thorough."</p>
         </div>
       </div>
       <div class="testimonial-slide">
         <div class="testimonial-card">
+          <div class="testimonial-img"></div>
           <h4>Arjun Kapoor</h4>
-          <p>"Explains everything clearly and ensures comfort."</p>
+          <p>"She explains everything in detail and ensures patient comfort."</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Appointment -->
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="cta-buttons">
+      <a href="tel:+919876543210">📞 Call: +91-9876543210</a>
+      <a href="https://wa.me/919876543210" target="_blank">💬 WhatsApp</a>
+      <a href="mailto:doctor@example.com">✉️ Email</a>
+    </div>
+  </section>
+
+  <!-- Appointment Form -->
   <section id="appointment">
     <h2>Book an Appointment</h2>
-    <form id="appointmentForm">
+    <form>
       <input type="text" name="name" placeholder="Full Name" required>
       <input type="tel" name="phone" placeholder="Phone Number" required>
       <input type="email" name="email" placeholder="Email Address" required>
@@ -315,7 +473,6 @@
       <textarea rows="4" name="message" placeholder="Message"></textarea>
       <button type="submit">Submit</button>
     </form>
-    <p id="formResponse" style="margin-top:10px; font-weight:600;"></p>
   </section>
 
   <!-- Footer -->
@@ -325,32 +482,38 @@
 
   <!-- Scripts -->
   <script>
-    // Hamburger toggle
-    document.querySelector(".hamburger").addEventListener("click", () => {
-      document.querySelector(".nav-links").classList.toggle("active");
+    // Hamburger menu toggle + auto-close
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuBtn = document.getElementById("menu-btn");
+      const navLinks = document.getElementById("nav-links");
+      const links = navLinks.querySelectorAll("a");
+
+      menuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      links.forEach(link => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+        });
+      });
     });
 
-    // Testimonial auto-slider
-    document.addEventListener("DOMContentLoaded", function() {
+    // Testimonial Auto-Slider
+    document.addEventListener("DOMContentLoaded", function () {
       let index = 0;
       const slides = document.querySelectorAll(".testimonial-slide");
+
       function showSlide() {
-        slides.forEach((s, i) => s.classList.toggle("active", i === index));
+        slides.forEach((s, i) => {
+          s.classList.remove("active");
+        });
+        slides[index].classList.add("active");
         index = (index + 1) % slides.length;
       }
-      setInterval(showSlide, 5000);
-    });
 
-    // Form submission (Google Sheets integration placeholder)
-    document.getElementById("appointmentForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      document.getElementById("formResponse").innerText = "✅ Appointment submitted successfully!";
-      document.getElementById("formResponse").style.color = "green";
-      this.reset();
+      setInterval(showSlide, 5000); // every 5s
     });
   </script>
-
 </body>
 </html>
-
-
